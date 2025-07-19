@@ -32,10 +32,11 @@ section {
 	padding: 2em;
 	background-color: var(--white);
 	border-radius: 12px;
-	width: min(100%, 600px);
+	margin: 0 auto;
+	width: min(100%, 700px);
 
 	&__title {
-		font-size: 2.4rem;
+		font-size: clamp(2.4rem, 4vw, 2.8rem);
 		margin-block-end: 1em;
 		color: var(--darkGrey);
 		font-weight: 700;
@@ -49,7 +50,7 @@ section {
 	}
 	label.query-label {
 		width: 100%;
-		padding: 1.1em 1.6em;
+		padding: 0.9em 1.6em;
 		position: relative;
 		margin-block-end: 0;
 		margin-inline-start: 1.8em;
@@ -88,6 +89,7 @@ section {
 		margin: 0.5em 0 1em;
 		color: var(--red);
 		font-size: var(--mainTxt);
+		visibility: hidden;
 	}
 	input[type="radio"] {
 		display: none;
@@ -128,7 +130,6 @@ section {
 		font-size: var(--mainTxt);
 		gap: 1em;
 		color: var(--darkGrey);
-		font-weight: 500;
 	}
 	.confirmation__box {
 		width: 14px;
@@ -172,5 +173,58 @@ section {
 		background-color: var(--green);
 		cursor: pointer;
 		color: var(--white);
+	}
+}
+
+@media (576px <= width) {
+	.form {
+		padding: 3em;
+
+		input[type="text"],
+		input[type="email"],
+		textarea {
+			padding: 1em 1.4em;
+		}
+		&__box--query {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
+		&__option-box {
+			width: calc(50% - 1em);
+		}
+		&__option-box:first-of-type {
+			margin: 0;
+		}
+		&__btn {
+			padding: 1.3em 2em;
+		}
+	}
+}
+@media (768px <= width) {
+	.form {
+		padding: 4em;
+
+		&__box-container {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+
+			.form__box {
+				width: calc(50% - 1em);
+			}
+		}
+		textarea {
+			resize: none;
+			min-height: 100px;
+		}
+		&__btn {
+			transition: background-color 0.3s;
+			font-size: 1.4rem;
+
+			&:hover {
+				background-color: hsl(169, 91%, 18%);
+			}
+		}
 	}
 }
