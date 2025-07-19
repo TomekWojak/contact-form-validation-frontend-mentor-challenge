@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	const textarea = document.querySelector("#textarea");
 	const checkbox = document.querySelector("#confirmation");
 	const submitBtn = document.querySelector(".form__btn");
+	const checkboxIcon = document.querySelector(".confirmation__box");
 	const options = [generalSelectInput, supportSelectInput];
 	const textInputs = [nameInput, lastNameInput, emailInput, textarea];
 	const nameRegexp = /^[a-zA-Z]{3,}$/;
@@ -129,7 +130,20 @@ document.addEventListener("DOMContentLoaded", function () {
 			}, 5000);
 		}
 	};
-	sentMsg();
 
+	options.forEach((option) => {
+		const optionParent = option.closest(".form__option-box");
+		optionParent.addEventListener("keydown", (e) => {
+			if (e.key === "Enter") {
+				option.setAttribute("checked", "true");
+			}
+		});
+	});
+	checkboxIcon.addEventListener("keydown", (e) => {
+		if (e.key === "Enter") {
+			checkbox.toggleAttribute("checked");
+		}
+	});
+	sentMsg();
 	submitBtn.addEventListener("click", handleForm);
 });

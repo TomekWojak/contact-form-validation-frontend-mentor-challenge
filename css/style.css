@@ -178,7 +178,11 @@ section {
   height: 14px;
   flex-shrink: 0;
   border-radius: 2px;
-  border: 1px solid var(--mediumGrey);
+  border: 2px solid var(--mediumGrey);
+  outline: none;
+}
+.form .confirmation__box:focus-visible {
+  border: 2px solid var(--green);
 }
 .form .confirmation__box img {
   width: 100%;
@@ -197,9 +201,13 @@ section {
   align-items: center;
   border-radius: 6px;
   border: 1px solid var(--mediumGrey);
+  outline: none;
 }
 .form__option-box:first-of-type {
   margin-block-end: 1em;
+}
+.form__option-box:focus-visible {
+  border: 1px solid var(--green);
 }
 .form__option-box:has(input[type=radio]:checked) {
   border: 1px solid var(--green);
@@ -276,8 +284,9 @@ section {
   .form__btn {
     transition: background-color 0.3s;
     font-size: 1.4rem;
+    outline: none;
   }
-  .form__btn:hover {
+  .form__btn:hover, .form__btn:focus-visible {
     background-color: hsl(169, 91%, 18%);
   }
 }/*# sourceMappingURL=style.css.map */
