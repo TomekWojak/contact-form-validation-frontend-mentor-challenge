@@ -10,10 +10,72 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap"
     rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
   <script src="js/script.js" defer></script>
 </head>
 
 <body>
+  <main>
+    <section>
+      <form class="form">
+        <h1 class="form__title">Contact Us</h1>
+        <div class="form__box-container">
+          <div class="form__box">
+            <label for="name">First Name <span class="star">*</span></label>
+            <input type="text" id="name">
+            <p class="error-txt">error</p>
+          </div>
+          <div class="form__box">
+            <label for="last-name">Last Name <span class="star">*</span></label>
+            <input type="text" id="last-name">
+            <p class="error-txt">error</p>
+          </div>
+        </div>
+        <div class="form__box">
+          <label for="email">Email Address <span class="star">*</span></label>
+          <input type="email" id="email">
+          <p class="error-txt">error</p>
+        </div>
+        <div class="form__box form__box--query">
+          <p class="query-type">Query Type <span class="star">*</span></p>
+          <div class="form__option-box">
+            <input type="radio" name="query" id="general">
+            <label for="general" class="query-label">General Enquiry
+              <div class="query-label-radio"><img width="20" height="21" src="/assets/images/icon-radio-selected.svg"
+                  alt=""></div>
+            </label>
+          </div>
+          <div class="form__option-box">
+            <input type="radio" name="query" id="support">
+            <label for="support" class="query-label">Support Request
+              <div class="query-label-radio"><img width="20" height="21" src="/assets/images/icon-radio-selected.svg"
+                  alt=""></div>
+            </label>
+          </div>
+          <p class="error-txt">error</p>
+        </div>
+        <div class="form__box">
+          <label for="textarea">Message <span class="star">*</span></label>
+          <textarea id="textarea"></textarea>
+          <p class="error-txt">error</p>
+        </div>
+        <div class="form__box">
+          <input type="checkbox" id="confirmation">
+          <label for="confirmation" class="confirmation">
+            <div class="confirmation__box">
+              <img src="/assets/images/icon-checkbox-check.svg" width="18" height="18" alt="">
+            </div>
+            <div class="label__text">
+              I consent to being contacted by the team <span class="star">*</span>
+            </div>
+          </label>
+          <p class="error-txt">error</p>
+        </div>
+        <button type="submit" class="form__btn">Submit</button>
+      </form>
+    </section>
+  </main>
+  <!-- 
 
   Contact Us
 
@@ -41,11 +103,10 @@
   Submit
 
   Message Sent!
-  Thanks for completing the form. We'll be in touch soon!
+  Thanks for completing the form. We'll be in touch soon! -->
 
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
-    Coded by <a href="#">Your Name Here</a>.
+
+  <!-- Challenge by Frontend Mentor - https://www.frontendmentor.io?ref=challenge  -->
   </div>
 </body>
 
