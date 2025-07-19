@@ -92,9 +92,9 @@ section {
   font-size: var(--mainTxt);
 }
 .form .error-txt {
-  margin: 0.5em 0 1em;
+  margin: 0.7em 0 1em;
   color: var(--red);
-  font-size: var(--mainTxt);
+  font-size: clamp(1.1rem, 3vw, 1.3rem);
   visibility: hidden;
 }
 .form input[type=radio] {
@@ -181,7 +181,15 @@ section {
   cursor: pointer;
   color: var(--white);
 }
+.form__box--checkbox {
+  margin-block-start: 2em;
+}
 
+@media (450px <= width) {
+  .form__box--checkbox {
+    margin-block-start: 3em;
+  }
+}
 @media (576px <= width) {
   .form {
     padding: 3em;
