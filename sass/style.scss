@@ -28,6 +28,39 @@ body {
 section {
 	padding: 3em 1em;
 }
+.message-status-box {
+	padding: 1.5em;
+	width: min(80%, 400px);
+	position: fixed;
+	left: 50%;
+	transform: translateX(-50%);
+	top: -100%;
+	background-color: var(--darkGrey);
+	color: var(--white);
+	border-radius: 10px;
+	transition: top 0.5s;
+
+	img {
+		vertical-align: middle;
+		width: 15px;
+		height: 15px;
+	}
+
+	&.active {
+		top: 5%;
+	}
+}
+.message-status-title {
+	margin-inline-start: 0.3em;
+	display: inline-block;
+	font-size: var(--mainTxt);
+	vertical-align: middle;
+}
+.message-status-info {
+	margin-block-start: 1em;
+	font-size: clamp(1.1rem, 3vw, 1.3rem);
+	color: var(--veryLightGreen);
+}
 .form {
 	padding: 2em;
 	background-color: var(--white);
@@ -211,6 +244,16 @@ section {
 	}
 }
 @media (768px <= width) {
+	.message-status-box {
+		border-radius: 10px;
+		padding: 2em;
+
+		img {
+			vertical-align: middle;
+			width: 18px;
+			height: 18px;
+		}
+	}
 	.form {
 		padding: 4em;
 

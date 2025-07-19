@@ -113,10 +113,23 @@ document.addEventListener("DOMContentLoaded", function () {
 				errorCount++;
 			}
 		});
-		// if (errorCount === 0) {
-			
-		// }
+		if (errorCount === 0) {
+			window.location.href = window.location.pathname + "?status=sent";
+		}
 	};
+	const sentMsg = () => {
+		const params = new URLSearchParams(window.location.search);
+		if (params.get("status") === "sent") {
+			const statusMsg = document.querySelector(".message-status-box");
+			setTimeout(() => {
+				statusMsg.classList.add("active");
+			}, 50);
+			setTimeout(() => {
+				statusMsg.classList.remove("active");
+			}, 5000);
+		}
+	};
+	sentMsg();
 
 	submitBtn.addEventListener("click", handleForm);
 });
