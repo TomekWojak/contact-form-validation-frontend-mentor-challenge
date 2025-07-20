@@ -81,6 +81,9 @@ section {
   color: var(--darkGrey);
   font-weight: 700;
 }
+.form__box.error input[type=text], .form__box.error input[type=email], .form__box.error textarea {
+  border: 1px solid var(--red);
+}
 .form label:not(.confirmation),
 .form .query-type {
   display: block;
@@ -282,11 +285,14 @@ section {
     min-height: 100px;
   }
   .form__btn {
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.3s;
     font-size: 1.4rem;
     outline: none;
   }
   .form__btn:hover, .form__btn:focus-visible {
     background-color: hsl(169, 91%, 18%);
+  }
+  .form__btn:active {
+    transform: scale(0.98);
   }
 }/*# sourceMappingURL=style.css.map */

@@ -12,6 +12,8 @@ document.addEventListener("DOMContentLoaded", function () {
 	const textInputs = [nameInput, lastNameInput, emailInput, textarea];
 	const nameRegexp = /^[a-zA-Z]{3,}$/;
 	const emailRegexp = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,3}$/;
+	let parent;
+	let errorTxt;
 
 	const handleForm = (e) => {
 		e.preventDefault();
@@ -28,8 +30,8 @@ document.addEventListener("DOMContentLoaded", function () {
 	const checkIfEmpty = (arr) => {
 		arr.forEach((input) => {
 			const value = input.value.trim();
-			const formBox = input.parentElement;
-			const errorTxt = formBox.querySelector(".error-txt");
+			parent = input.parentElement;
+			errorTxt = parent.querySelector(".error-txt");
 			if (value === "") {
 				errorTxt.textContent = "This field is required";
 				errorTxt.style.visibility = "visible";
@@ -48,8 +50,8 @@ document.addEventListener("DOMContentLoaded", function () {
 	};
 	const checkRadios = (options, input) => {
 		let atLeastOnechecked = options.some((option) => option.checked);
-		const parent = input.closest(".form__box");
-		const errorTxt = parent.querySelector(".error-txt");
+		parent = input.closest(".form__box");
+		errorTxt = parent.querySelector(".error-txt");
 		if (!atLeastOnechecked) {
 			errorTxt.style.visibility = "visible";
 			errorTxt.textContent = "Please select a query type";
@@ -61,8 +63,8 @@ document.addEventListener("DOMContentLoaded", function () {
 	};
 
 	const checkIfChecked = (input) => {
-		const parent = input.parentElement;
-		const errorTxt = parent.querySelector(".error-txt");
+		parent = input.parentElement;
+		errorTxt = parent.querySelector(".error-txt");
 		if (!input.checked) {
 			errorTxt.style.visibility = "visible";
 			errorTxt.textContent =
@@ -75,8 +77,8 @@ document.addEventListener("DOMContentLoaded", function () {
 	};
 	const checkIfCorrect = (input, regexp, min, msg) => {
 		let minValue = min;
-		const parent = input.parentElement;
-		const errorTxt = parent.querySelector(".error-txt");
+		parent = input.parentElement;
+		errorTxt = parent.querySelector(".error-txt");
 		const label = parent.querySelector("label");
 		if (input.value.trim().length < min && input.value.trim() !== "") {
 			errorTxt.style.visibility = "visible";
@@ -96,8 +98,8 @@ document.addEventListener("DOMContentLoaded", function () {
 		}
 	};
 	const checkEmail = (input, regexp) => {
-		const parent = input.parentElement;
-		const errorTxt = parent.querySelector(".error-txt");
+		parent = input.parentElement;
+		errorTxt = parent.querySelector(".error-txt");
 		if (!regexp.test(input.value) && input.value.trim() !== "") {
 			errorTxt.style.visibility = "visible";
 			errorTxt.textContent = "Invalid email address!";
@@ -106,7 +108,15 @@ document.addEventListener("DOMContentLoaded", function () {
 	};
 	const checkErrors = () => {
 		let errorCount = 0;
-		const allInputs = document.querySelectorAll("input");
+		const allInputs = [
+			nameInput,
+			lastNameInput,
+			emailInput,
+			generalSelectInput,
+			supportSelectInput,
+			textarea,
+			checkbox,
+		];
 
 		allInputs.forEach((input) => {
 			const formBox = input.closest(".form__box");

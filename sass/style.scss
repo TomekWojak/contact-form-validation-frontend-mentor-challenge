@@ -28,6 +28,7 @@ body {
 section {
 	padding: 3em 1em;
 }
+
 .message-status-box {
 	padding: 1.5em;
 	width: min(80%, 400px);
@@ -73,6 +74,11 @@ section {
 		margin-block-end: 1em;
 		color: var(--darkGrey);
 		font-weight: 700;
+	}
+	&__box.error input[type="text"],
+	&__box.error input[type="email"],
+	&__box.error textarea {
+		border: 1px solid var(--red);
 	}
 	label:not(.confirmation),
 	.query-type {
@@ -279,13 +285,16 @@ section {
 			min-height: 100px;
 		}
 		&__btn {
-			transition: background-color 0.3s;
+			transition: background-color 0.3s, transform 0.3s;
 			font-size: 1.4rem;
 			outline: none;
 
 			&:hover,
 			&:focus-visible {
 				background-color: hsl(169, 91%, 18%);
+			}
+			&:active {
+				transform: scale(0.98);
 			}
 		}
 	}
